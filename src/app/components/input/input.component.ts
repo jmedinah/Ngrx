@@ -11,9 +11,9 @@ export class InputComponent implements OnInit {
 	constructor() {}
 	ngOnInit() {}
 
-	@Output() MessageEvent = new EventEmitter<string>();
+	@Output() messageEvent = new EventEmitter<string>();
 
-	sendMessage() {
-		this.MessageEvent.emit(this.text);
+	public sendMessage(): void {
+		this.messageEvent.emit(this.text);
 	}
 }

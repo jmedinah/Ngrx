@@ -21,7 +21,3 @@ export function reducer(state = initialState, action: Actions) {
 			return state;
 	}
 }
-
-// export const getRowsState = (state: AppState) => state.rows;
-
-// export const getBookEntities = createSelector(getRowsState, fromBooks.getEntities);

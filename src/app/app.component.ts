@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './models/app-state.model';
 import { Row } from './models/row.model';
 import * as Action from './actions/actions';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-root',
@@ -12,25 +13,22 @@ import * as Action from './actions/actions';
 export class AppComponent {
 	title = 'Exercise';
 	appState: AppState;
-	rows: Row[];
-	row: Row;
+	rows$: Observable<Row[]>;
 
-	constructor(private store: Store<any>) {}
+	constructor(private _store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.select('appState').subscribe((mainState: AppState) => {
-			this.rows = mainState.rows;
-		});
+		this.rows$ = this._store.select((state: AppState) => state['appState'].rows);
 	}
 
-	getInput(items: string) {
-		this.row = { id: '', items: [] };
-		this.row.id = 'id-' + Math.random().toString(36).substr(2, 16);
-		this.row.items = items.split(',');
-		this.store.dispatch(new Action.AddRow(this.row));
+	public addRow(items: string): void {
+		let row: Row = { id: '', items: [] };
+		row.id = 'id-' + Math.random().toString(36).substr(2, 16);
+		row.items = items.split(',');
+		this._store.dispatch(new Action.AddRow(row));
 	}
 
-	delRow(id: string) {
-		this.store.dispatch(new Action.DelRow(id));
+	public delRow(id: string): void {
+		this._store.dispatch(new Action.DelRow(id));
 	}
 }

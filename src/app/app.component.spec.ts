@@ -1,15 +1,33 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { InputComponent } from './components/input/input.component';
+import { RowsComponent } from './components/rows/rows.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RowComponent } from './components/row/row.component';
+import { ItemComponent } from './components/item/item.component';
+import { NgforbynumberPipe } from './pipes/ngforbynumber.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatButtonModule,
+        MatInputModule,
+        FormsModule,
+        MatFormFieldModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        InputComponent,
+        RowsComponent,
+        RowComponent,
+        ItemComponent,
+        NgforbynumberPipe
       ],
     }).compileComponents();
   }));

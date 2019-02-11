@@ -1,7 +1,7 @@
-<h1>Exercise</h1>
+<h1>{{title}}</h1>
 
-<app-input (MessageEvent)="getInput($event)"></app-input>
+<app-input (messageEvent)="addRow($event)"></app-input>
 
 <h2>inputs</h2>
 
-<app-rows [rows]="rows" (DelRow)="delRow($event)"></app-rows>
+<app-rows [rows]="rows$ | async" (delRow)="delRow($event)"></app-rows>

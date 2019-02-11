@@ -7,7 +7,7 @@ import { Row } from '../models/row.model';
 export class ColsService {
 	constructor() {}
 
-	getItemsNumber(rows: Row[]) {
+	public getItemsNumber(rows: Row[]): number {
 		return rows.length > 0
 			? rows.reduce((state, current) => {
 					return state.items.length > current.items.length ? state : current;

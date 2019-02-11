@@ -1,5 +1,5 @@
 <div *ngFor="let row of rows" class="row">
-  <i class="material-icons row__icon" (click)="delRow(row.id)">
+  <i class="material-icons row__icon" (click)="deleteRow(row.id)">
     remove_circle_outline
   </i>
   <app-row [row]="row" [itemsNumber]="maxNumber"></app-row>

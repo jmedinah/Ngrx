@@ -9,17 +9,19 @@ import { ColsService } from 'src/app/services/cols.service';
 })
 export class RowsComponent implements OnInit, OnChanges {
 	@Input() rows: Row[];
-	@Output() DelRow = new EventEmitter<string>();
+	@Output() delRow = new EventEmitter<string>();
+
 	maxNumber: number;
+
 	constructor(private _colService: ColsService) {}
 
 	ngOnInit() {}
 
 	ngOnChanges(changes: SimpleChanges) {
-		this.maxNumber = this._colService.getItemsNumber(changes.rows.currentValue);
+		this.maxNumber = changes.rows.firstChange ? 0 : this._colService.getItemsNumber(changes.rows.currentValue);
 	}
 
-	delRow(id: string) {
-		this.DelRow.emit(id);
+	public deleteRow(id: string): void {
+		this.delRow.emit(id);
 	}
 }

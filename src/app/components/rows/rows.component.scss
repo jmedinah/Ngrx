@@ -1,0 +1,8 @@
+.row {
+    display: flex;
+  
+    &__icon {
+      margin: auto 10px;
+      cursor: pointer;
+    }
+  }

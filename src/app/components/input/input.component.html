@@ -1,0 +1,6 @@
+<div>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Input" [(ngModel)]="text">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!text" style="margin: 10px" (click)="sendMessage()">Submit</button>
+</div>

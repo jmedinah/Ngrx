@@ -5,3 +5,4 @@
 <h2>inputs</h2>
 
 <app-rows [rows]="rows$ | async" (delRow)="delRow($event)"></app-rows>
+<app-statistics [rows]="rows$ | async"></app-statistics>

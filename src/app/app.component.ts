@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './models/app-state.model';
 import { Row } from './models/row.model';
+import { Statistics } from './models/statistics.model';
 import * as Action from './actions/actions';
 import { Observable } from 'rxjs';
+import { getRows } from './reducers/reducer';
 
 @Component({
 	selector: 'app-root',
@@ -11,14 +13,18 @@ import { Observable } from 'rxjs';
 	styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
-	title = 'Exercise';
-	appState: AppState;
+	public title = 'Exercise';
 	rows$: Observable<Row[]>;
+	statistics$: Observable<Statistics>;
 
 	constructor(private _store: Store<any>) {}
 
 	ngOnInit() {
+
+		// this.rows$ = this._store.select(getRows);
+		// this.rows$ = this._store.select((state: AppState) => state.rows);
 		this.rows$ = this._store.select((state: AppState) => state['appState'].rows);
+		this.statistics$ = this._store.select((state: AppState) => state['appState'].statistics);
 	}
 
 	public addRow(items: string): void {

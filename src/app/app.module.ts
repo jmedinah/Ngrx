@@ -14,9 +14,10 @@ import { ItemComponent } from './components/item/item.component';
 import { RowsComponent } from './components/rows/rows.component';
 import { ColsService } from './services/cols.service';
 import { NgforbynumberPipe } from './pipes/ngforbynumber.pipe';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
-	declarations: [ AppComponent, InputComponent, RowComponent, ItemComponent, RowsComponent, NgforbynumberPipe ],
+	declarations: [ AppComponent, InputComponent, RowComponent, ItemComponent, RowsComponent, NgforbynumberPipe, StatisticsComponent ],
 	imports: [
 		BrowserModule,
 		FormsModule,

@@ -15,16 +15,11 @@ import { getRows } from './reducers/reducer';
 export class AppComponent {
 	public title = 'Exercise';
 	rows$: Observable<Row[]>;
-	statistics$: Observable<Statistics>;
 
 	constructor(private _store: Store<any>) {}
 
 	ngOnInit() {
-
-		// this.rows$ = this._store.select(getRows);
-		// this.rows$ = this._store.select((state: AppState) => state.rows);
-		this.rows$ = this._store.select((state: AppState) => state['appState'].rows);
-		this.statistics$ = this._store.select((state: AppState) => state['appState'].statistics);
+		this.rows$ = this._store.select(getRows);
 	}
 
 	public addRow(items: string): void {

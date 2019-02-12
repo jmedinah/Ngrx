@@ -1,9 +1,9 @@
 import { AppState } from '../models/app-state.model';
 import { Actions, ActionTypes } from '../actions/actions';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export let initialState: AppState = {
-	rows: [],
-	statistics: { rowsAdded: 0, rowsDeleted: 0, maxItemsRow: 0, minItemsRow: 0 }
+	rows: []
 };
 
 export function reducer(state = initialState, action: Actions) {
@@ -23,4 +23,6 @@ export function reducer(state = initialState, action: Actions) {
 	}
 }
 
-export const getRows = (state: AppState) => state.rows;
+const getFeatureState = createFeatureSelector<AppState>('appState');
+
+export const getRows = createSelector(getFeatureState, (state: AppState) => state.rows);

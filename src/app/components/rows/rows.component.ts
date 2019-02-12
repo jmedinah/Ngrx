@@ -11,14 +11,14 @@ export class RowsComponent implements OnInit, OnChanges {
 	@Input() rows: Row[];
 	@Output() delRow = new EventEmitter<string>();
 
-	maxNumber: number;
+	public maxNumber: number;
 
 	constructor(private _colService: ColsService) {}
 
 	ngOnInit() {}
 
 	ngOnChanges(changes: SimpleChanges) {
-		this.maxNumber = changes.rows.firstChange ? 0 : this._colService.getItemsNumber(changes.rows.currentValue);
+		this.maxNumber = changes.rows.firstChange ? 0 : this._colService.getMaxNumber(changes.rows.currentValue);
 	}
 
 	public deleteRow(id: string): void {

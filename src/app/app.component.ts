@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from './models/app-state.model';
 import { Row } from './models/row.model';
-import { Statistics } from './models/statistics.model';
 import * as Action from './actions/actions';
 import { Observable } from 'rxjs';
 import { getRows } from './reducers/reducer';

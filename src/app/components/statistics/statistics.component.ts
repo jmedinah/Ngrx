@@ -17,7 +17,7 @@ export class StatisticsComponent implements OnInit {
 
 	ngOnInit() {}
 
-	ngOnChanges(changes: SimpleChanges) {
+	public ngOnChanges(changes: SimpleChanges):void {
 		if (!changes.rows.firstChange) {
 			this.setStatistics(changes.rows);
 		}
@@ -29,7 +29,7 @@ export class StatisticsComponent implements OnInit {
 		if (this._currentRows >= rowsStats.currentValue.length) {
 			this.statistics.rowsDeleted += 1;
 		} else {
-			this.statistics.rowsAdded += 1;
+			this.statistics.rowsAdded += 1;	
 		}
 		this._currentRows = rowsStats.currentValue.length;
 	}
